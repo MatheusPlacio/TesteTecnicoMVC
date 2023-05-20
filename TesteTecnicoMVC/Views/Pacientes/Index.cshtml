@@ -1,0 +1,105 @@
+﻿@model IEnumerable<TesteTecnicoMVC.Models.Paciente>
+
+@{
+    ViewData["Title"] = "Pacientes";
+}
+
+<h4>Pacientes</h4>
+
+<table class="table table-hover table-sm">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                Sobrenome
+            </th>
+            <th>
+                Data/Nascimento
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UF_RG)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                Telefone/fixo
+            </th>
+            <th>
+                Convênio
+            </th>
+            <th>
+                Carteira/Convênio
+            </th>
+            <th>
+                Validade/Convênio
+            </th>
+            <th><a asp-action="AddOrEdit" class="btn btn-outline-success float-right"><i class="far fa-plus-square"></i>Novo</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SobreNome)
+                </td>
+                <td class ="text-center">
+                    @item.DataDeNascimento.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UF_RG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelefoneFixo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Convenio.Nome)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.CarteirinhaDoConvenio)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.ValidadeDaCarteirinha)
+                </td>
+                <td>
+                    <a asp-action="AddOrEdit" asp-route-id="@item.PacienteId" class="btn btn-primary btn-sm">Editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
