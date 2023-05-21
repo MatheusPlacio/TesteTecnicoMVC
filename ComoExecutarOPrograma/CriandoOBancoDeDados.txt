@@ -1,5 +1,4 @@
-PASSO A PASSO EXECUTAR A API.
-
+PASSO A PASSO EXECUTAR O PROJETO
 O projeto está usando entity framework Core versão 6, automapper ultima versão
 entity framework core design e tools versão 6, e entity framework core SQL server versão 6.
 
@@ -17,10 +16,9 @@ a sua máquina local ao lado de 'Server' onde está escrito 'SUAMAQUINA'.
 
 1- Vá em ferramentas (tools) no visual studio, gerenciador de pacote nucGet (nuGet Package Manager), 
 2- abra o console
-3- no projeto padrão (default projetct) SELECIONE o projeto 'DATA 
-4- Depois digite o comando add-migration New, 
-5- E logo após de criar as migrations digite o comando update-database.
+3- Depois digite o comando add-migration New, 
+4- E logo após de criar as migrations digite o comando update-database.
 
 Depois de criado as migrations e ter feito a conexão com o seu banco de dados local, 
-já consegue testar a api.
+já consegue testar o projeto.
 
