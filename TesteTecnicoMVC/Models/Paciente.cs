@@ -24,7 +24,7 @@ namespace TesteTecnicoMVC.Models
         public string Genero { get; set; }
 
         [StringLength(11, ErrorMessage = "O campo {0} precisa ter 11 dígitos", MinimumLength = 11)]
-        public string CPF { get; set; }
+        public string? CPF { get; set; }
 
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
@@ -44,7 +44,7 @@ namespace TesteTecnicoMVC.Models
         public string TelefoneFixo { get; set; }
 
         [StringLength(70, ErrorMessage = "O campo {0} deve ter no máximo {1} caracteres")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]

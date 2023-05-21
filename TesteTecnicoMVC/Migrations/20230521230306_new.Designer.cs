@@ -12,7 +12,7 @@ using TesteTecnicoMVC.Context;
 namespace TesteTecnicoMVC.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20230520203910_new")]
+    [Migration("20230521230306_new")]
     partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,7 +56,6 @@ namespace TesteTecnicoMVC.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PacienteId"), 1L, 1);
 
                     b.Property<string>("CPF")
-                        .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 
@@ -77,7 +76,6 @@ namespace TesteTecnicoMVC.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
