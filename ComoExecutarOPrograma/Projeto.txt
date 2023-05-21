@@ -1,0 +1,2 @@
+O projeto prevê que o usuário consiga cadastrar e visualizar um convênio, e também consiga
+cadastrar, visualizar e editar um paciente.
