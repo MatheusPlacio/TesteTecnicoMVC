@@ -42,6 +42,7 @@ public class PacientesController : Controller
             return View(paciente);
         }
     }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> AddOrEdit(Paciente paciente)
@@ -51,10 +52,18 @@ public class PacientesController : Controller
         if (paciente.PacienteId == 0)
         {
             // Verificar se o CPF já existe
-            var existingPaciente = _context.Pacientes.FirstOrDefault(p => p.CPF == paciente.CPF);
-            if (existingPaciente != null)
+            var existeCPF = _context.Pacientes.FirstOrDefault(p => p.CPF == paciente.CPF);
+            var existeRG = _context.Pacientes.FirstOrDefault(p => p.RG == paciente.RG);
+
+            if (existeCPF != null)
             {
                 ModelState.AddModelError("CPF", "O CPF já está cadastrado.");
+                return View(paciente);
+            }
+
+            else if (existeRG != null)
+            {
+                ModelState.AddModelError("RG", "O RG já está cadastrado.");
                 return View(paciente);
             }
 
@@ -63,11 +72,16 @@ public class PacientesController : Controller
         }
         else
         {
-            // Verificar se o CPF está sendo alterado para o CPF de outra pessoa
-            var existingPaciente = _context.Pacientes.FirstOrDefault(p => p.CPF == paciente.CPF && p.PacienteId != paciente.PacienteId);
-            if (existingPaciente != null)
+            var existeCPF = _context.Pacientes.FirstOrDefault(p => p.CPF == paciente.CPF && p.PacienteId != paciente.PacienteId);
+            var existeRG = _context.Pacientes.FirstOrDefault(p => p.RG == paciente.RG && p.PacienteId != paciente.PacienteId);
+            if (existeCPF != null)
             {
                 ModelState.AddModelError("CPF", "O CPF já está cadastrado para outra pessoa.");
+                return View(paciente);
+            }
+            else if (existeRG != null)
+            {
+                ModelState.AddModelError("RG", "O RG já está cadastrado para outra pessoa.");
                 return View(paciente);
             }
 
